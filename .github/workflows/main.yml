@@ -1,0 +1,16 @@
+name: Power Apps CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Add steps to build, test, and deploy your Power Apps here
