@@ -1,0 +1,90 @@
+SelectedRequest1 As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Gallery_Requests As gallery:
+        BorderColor: =App.Theme.Colors.Darker40
+        Height: =640
+        Items: =Filter(Distinct('Logistics BOM Tracker', RequestID), RequesterEmail = User().Email)
+        Layout: =Vertical
+        Width: =1366
+        Y: =124
+        ZIndex: =1
+
+        ViewDetails_Button As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |
+                =Set(SelectedRequest, ThisItem);
+                Navigate(Screen_DisplayDetails, ScreenTransition.None);
+            Text: ="View Details"
+            Width: =150
+            X: =170
+            Y: =20
+            ZIndex: =1
+
+        DateCreated_Label As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: =Text(ThisItem.DateCreated, "[$-en-US]dd/mm/yyyy")
+            Y: =264
+            ZIndex: =2
+
+        SalesOrderTriggeredID_Label As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: =ThisItem.SalesOrderTriggeredID
+            Width: =300
+            Y: =188
+            ZIndex: =3
+
+        RequestID_Label As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: =ThisItem.Value
+            Width: =200
+            Y: =100
+            ZIndex: =4
+
+        Header_DateCreated As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: ="Date Created"
+            Y: =224
+            ZIndex: =5
+
+        Header_SalesOrderTriggeredID As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: ="Sales Order Triggered ID"
+            Width: =300
+            Y: =148
+            ZIndex: =6
+
+        Header_RequestID As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: ="Request ID"
+            Width: =200
+            X: =10
+            Y: =60
+            ZIndex: =7
+

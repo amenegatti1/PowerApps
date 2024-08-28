@@ -1,0 +1,209 @@
+{
+  "1e111b3a-222a-45a1-8e6a-9e72a4297446": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "5220d17f-0c2c-4351-91ad-8f5fb19c5aca": {
+          "value": "shared_powerbi"
+        },
+        "workflowDisplayName": {
+          "value": "GettblLocationsflow"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8849376f-3b0b-40ae-b841-aeb1f335f453"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_powerbi": {
+          "value": "5220d17f-0c2c-4351-91ad-8f5fb19c5aca"
+        },
+        "workflowDisplayName": {
+          "value": "GettblLocationsflow"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "8849376f-3b0b-40ae-b841-aeb1f335f453"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GettblLocationsflow"
+    ],
+    "dependencies": {
+      "shared_powerbi": "5220d17f-0c2c-4351-91ad-8f5fb19c5aca"
+    },
+    "dependents": [],
+    "id": "1e111b3a-222a-45a1-8e6a-9e72a4297446"
+  },
+  "5220d17f-0c2c-4351-91ad-8f5fb19c5aca": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Power BI",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1694/1.0.1694.3752/powerbi/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_powerbi",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerBI"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "d5bd5805-9e87-43b8-84ad-99740b106f0e",
+      "fa63622b-04ca-4ef9-9c60-3a0efe03fb08",
+      "1e111b3a-222a-45a1-8e6a-9e72a4297446"
+    ],
+    "id": "5220d17f-0c2c-4351-91ad-8f5fb19c5aca"
+  },
+  "74456fd5-0801-427a-a1aa-5298c90e6268": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://vocusau.sharepoint.com/sites/PRJ-WarehouseRationalisation": {
+        "dataSources": {
+          "Logistics BOM Tracker": {
+            "tableName": "841cf86a-b5af-4153-993c-6329322099fb"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Logistics BOM Tracker"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "74456fd5-0801-427a-a1aa-5298c90e6268"
+  },
+  "90dccc24-0cf9-4023-b3fa-5984106d01b2": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel Online (Business)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1694/1.0.1694.3752/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "me,b%25217s_fQwTIS0OA__Bviq669C1-7BgvHoJBgwIvzq5vZgo019x61fMwS5-OUuMcvnED,017S7B6YW46OQNRR43FBCZ7QSCFBYFLUPP": {
+        "dataSources": {
+          "Table1": {
+            "tableName": "{EA2D1E51-ED34-4F15-8BBC-0E6E38A75823}"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Table1"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "90dccc24-0cf9-4023-b3fa-5984106d01b2"
+  },
+  "d5bd5805-9e87-43b8-84ad-99740b106f0e": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "5220d17f-0c2c-4351-91ad-8f5fb19c5aca": {
+          "value": "shared_powerbi"
+        },
+        "workflowDisplayName": {
+          "value": "CheckInventoryStatusFlow "
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "bab4471a-e90d-42f3-9ba2-c49cbf095add"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_powerbi": {
+          "value": "5220d17f-0c2c-4351-91ad-8f5fb19c5aca"
+        },
+        "workflowDisplayName": {
+          "value": "CheckInventoryStatusFlow "
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "bab4471a-e90d-42f3-9ba2-c49cbf095add"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "CheckInventoryStatusFlow"
+    ],
+    "dependencies": {
+      "shared_powerbi": "5220d17f-0c2c-4351-91ad-8f5fb19c5aca"
+    },
+    "dependents": [],
+    "id": "d5bd5805-9e87-43b8-84ad-99740b106f0e"
+  },
+  "fa63622b-04ca-4ef9-9c60-3a0efe03fb08": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3784/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "5220d17f-0c2c-4351-91ad-8f5fb19c5aca": {
+          "value": "shared_powerbi"
+        },
+        "workflowDisplayName": {
+          "value": "CheckPriceFlow"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "64e5273d-d9d4-4a99-adea-d51dee04ec47"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_powerbi": {
+          "value": "5220d17f-0c2c-4351-91ad-8f5fb19c5aca"
+        },
+        "workflowDisplayName": {
+          "value": "CheckPriceFlow"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "64e5273d-d9d4-4a99-adea-d51dee04ec47"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "CheckPriceFlow"
+    ],
+    "dependencies": {
+      "shared_powerbi": "5220d17f-0c2c-4351-91ad-8f5fb19c5aca"
+    },
+    "dependents": [],
+    "id": "fa63622b-04ca-4ef9-9c60-3a0efe03fb08"
+  }
+}

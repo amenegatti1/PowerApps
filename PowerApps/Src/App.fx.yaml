@@ -1,0 +1,36 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |
+        =// Initialize UserInputCollection1 with default values
+        ClearCollect(
+            UserInputCollection1,
+            {
+                PartNumber: "",    // Text field initialized as an empty string
+                Location: "",      // Text field initialized as an empty string
+                InService: "",     // Text field initialized as an empty string
+                SpareQty: "",      // Text field initialized as an empty string
+                USDPriceUnit: 0,   // Numeric field initialized as 0
+                Vendor: ""         // Text field for Vendor initialized as an empty string
+            }
+        );
+        
+        ClearCollect(
+            colLocationsFromPowerBI,
+            PowerBIIntegration.Data
+        );
+    Theme: =SteelTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
+    PowerBIIntegration As hostControl.DynamicHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

@@ -1,0 +1,566 @@
+SubmittedRequests As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    "CRD_Input_1 As 'Date picker'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: |-
+            ="CRD:"
+        Width: =200
+        X: =327
+        Y: =300
+        ZIndex: =4
+
+    "CCD_Input_1 As 'Date picker'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: |-
+            ="CCD:"
+        Width: =300
+        X: =14
+        Y: =300
+        ZIndex: =5
+
+    "TSNumber_Input_1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="TSNumber"
+        Width: =400
+        X: =548
+        Y: =241
+        ZIndex: =6
+
+    "RMTrackID_Input_1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="RMTrackID"
+        Width: =200
+        X: =327
+        Y: =241
+        ZIndex: =7
+
+    "CapexInfraID_Input_1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="CapexInfraID"
+        Width: =300
+        X: =14
+        Y: =240
+        ZIndex: =8
+
+    "SalesOrderTriggeredID_Input_1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="SalesOrderTriggeredID"
+        Width: =400
+        X: =548
+        Y: =179
+        ZIndex: =9
+
+    "SalesOrderNumber_Input_1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="SalesOrderNumber"
+        Width: =200
+        X: =327
+        Y: =179
+        ZIndex: =10
+
+    "ServiceID_Input_1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="ServiceID"
+        Width: =300
+        X: =14
+        Y: =179
+        ZIndex: =11
+
+    "JobDescription_Input_1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="Job / Project Description"
+        Width: =400
+        X: =227
+        Y: =108
+        ZIndex: =12
+
+    "DateCreated_Input_1 As 'Date picker'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Width: =200
+        X: =14
+        Y: =108
+        ZIndex: =13
+
+    TextInputPartNumber_2 As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =44
+        HintText: ="Part Number"
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =200
+        X: =7
+        Y: =403
+        ZIndex: =15
+
+    TextInputQuantity_2 As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: |
+            =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Format: =TextFormat.Number
+        Height: =43
+        HintText: ="Spare Qty Needed"
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =176
+        X: =903
+        Y: =402
+        ZIndex: =17
+
+    DataTable2_2 As dataTable.datatable:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Normal
+        HeadingColor: =RGBA(255, 255, 255, 1)
+        HeadingFill: =App.Theme.Colors.Primary
+        HeadingFont: =App.Theme.Font
+        HeadingFontWeight: =FontWeight.Normal
+        HeadingSize: =13
+        Height: =311
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter80
+        InputFill: =RGBA(255, 255, 255, 1)
+        InvertedColor: =RGBA(255, 255, 255, 1)
+        Items: =UserInputCollection
+        LinkColor: =App.Theme.Colors.Lighter10
+        PrimaryColor1: =App.Theme.Colors.Primary
+        PrimaryColor2: =App.Theme.Colors.Darker30
+        PrimaryColor3: =App.Theme.Colors.Lighter70
+        SelectedColor: =RGBA(0, 0, 0, 1)
+        SelectedFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =1366
+        X: =0
+        Y: =456
+        ZIndex: =19
+
+        PartNumber_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="PartNumber"
+            FieldName: ="PartNumber"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.PartNumber
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        Location_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Location"
+            FieldName: ="Location"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Location
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        InService_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="InService"
+            FieldName: ="InService"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.InService
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        SpareQty_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="SpareQty"
+            FieldName: ="SpareQty"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.SpareQty
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        USDPrice_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="USDPrice Unit"
+            FieldName: ="USDPrice"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.USDPrice
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        Vendor_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Vendor"
+            FieldName: ="Vendor"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.Vendor
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+    ButtonCanvas1_9 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =61
+        OnSelect: |
+            =Clear(UserInputCollection);
+        Text: ="Clear Table"
+        Width: =113
+        X: =1237
+        Y: =292
+        ZIndex: =21
+
+    ButtonCanvas1_8 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =62
+        OnSelect: |
+            =Remove(
+                UserInputCollection,
+                Last(UserInputCollection)
+            );
+        Text: ="Remove Last Row"
+        Width: =117
+        X: =1104
+        Y: =294
+        ZIndex: =22
+
+    Header1_1 As Header:
+        DisplayMode: =DisplayMode.Edit
+        Height: =55
+        IsLogoVisible: =false
+        OnSelectLogo: =false
+        Title: ="BOM Request"
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =23
+
+    TextInputInServiceQty As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: |
+            =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Format: =TextFormat.Number
+        Height: =43
+        HintText: ="In Service Qty Needed"
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =189
+        X: =678
+        Y: =402
+        ZIndex: =25
+
+    ButtonCanvas1_13 As Button:
+        Align: =Align.Justify
+        DisplayMode: =DisplayMode.Edit
+        Height: =73
+        OnSelect: |
+            =// Add the row to UserInputCollection
+            Collect(
+                UserInputCollection,
+                {
+                    PartNumber: TextInputPartNumber_2.Text,  
+                    Location: Dropdown1.Selected.LocationCode,  // Assuming LocationCode is the correct field name
+                    InService: Value(TextInputInServiceQty.Text),
+                    SpareQty: Value(TextInputQuantity_2.Text),
+                    Vendor: Dropdown3.Selected.Value            // Include the Vendor field in the collection
+                }
+            );
+            
+            // Clear previous validation results
+            Clear(StockCheckResults); 
+            
+            // Validate the new row and others in the collection
+            ForAll(
+                UserInputCollection,
+                Collect(
+                    StockCheckResults,
+                    {
+                        PartNumber: ThisRecord.PartNumber,
+                        Location: ThisRecord.Location,
+                        InService: ThisRecord.InService,
+                        SpareQty: ThisRecord.SpareQty,
+                        Vendor: ThisRecord.Vendor,                 // Keep the Vendor field during validation
+                        USDPrice: CheckPriceFlow.Run(ThisRecord.PartNumber).usdprice // Use the flow to get the price for each part number
+                    }
+                )
+            );
+            
+            // Re-collect validated results back into UserInputCollection
+            Clear(UserInputCollection);
+            Collect(UserInputCollection, StockCheckResults);
+            
+            // Reset input fields except Vendor
+            Reset(Dropdown1);              // Reset Location dropdown
+            Reset(TextInputInServiceQty);  // Reset In Service Qty input field
+            Reset(TextInputQuantity_2);    // Reset Spare Qty input field
+            // Vendor field (Dropdown3) is not reset
+        Text: ="Add Row (Keep Part)"
+        VerticalAlign: =VerticalAlign.Middle
+        Width: =117
+        X: =1104
+        Y: =372
+        ZIndex: =27
+
+    TotalCost_Label As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =App.Theme.Font
+        Height: =106
+        Size: =25
+        Text: |
+            ="Total Cost: $" & Text(
+                Sum(
+                    UserInputCollection, 
+                    Value(Substitute(USDPrice, "$", "")) * (InService + SpareQty)
+                ), 
+                "[$-en-US]###,###.00"
+            )
+        Width: =223
+        X: =1143
+        Y: =55
+        ZIndex: =28
+
+    Dropdown1 As combobox:
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayFields: =["LocationCode"]
+        Font: =App.Theme.Font
+        Height: =44
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        InputTextPlaceholder: ="Choose Location"
+        Items: =Table1
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SearchFields: =["LocationCode"]
+        SearchItems: =Search(Table1,Dropdown1.SearchText,LocationCode)
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =13
+        Width: =201
+        X: =452
+        Y: =402
+        ZIndex: =31
+
+    ButtonCanvas1_14 As Button:
+        Align: =Align.Center
+        DisplayMode: =DisplayMode.Edit
+        Height: =73
+        Layout: ='ButtonCanvas.Layout'.TextOnly
+        OnSelect: |
+            =// Add the row to UserInputCollection
+            Collect(
+                UserInputCollection,
+                {
+                    PartNumber: TextInputPartNumber_2.Text,  
+                    Location: Dropdown1.Selected.LocationCode,  // Assuming LocationCode is the correct field name
+                    InService: Value(TextInputInServiceQty.Text),
+                    SpareQty: Value(TextInputQuantity_2.Text),
+                    Vendor: Dropdown3.Selected.Value            // Include the Vendor field in the collection
+                }
+            );
+            
+            // Clear previous validation results
+            Clear(StockCheckResults); 
+            
+            // Validate the new row and others in the collection
+            ForAll(
+                UserInputCollection,
+                Collect(
+                    StockCheckResults,
+                    {
+                        PartNumber: ThisRecord.PartNumber,
+                        Location: ThisRecord.Location,
+                        InService: ThisRecord.InService,
+                        SpareQty: ThisRecord.SpareQty,
+                        Vendor: ThisRecord.Vendor,                 // Keep the Vendor field during validation
+                        USDPrice: CheckPriceFlow.Run(ThisRecord.PartNumber).usdprice // Use the flow to get the price for each part number
+                    }
+                )
+            );
+            
+            // Re-collect validated results back into UserInputCollection
+            Clear(UserInputCollection);
+            Collect(UserInputCollection, StockCheckResults);
+            
+            // Reset all input fields including Vendor
+            Reset(TextInputPartNumber_2);  // Reset Part Number input field
+            Reset(Dropdown1);              // Reset Location dropdown
+            Reset(TextInputInServiceQty);  // Reset In Service Qty input field
+            Reset(TextInputQuantity_2);    // Reset Spare Qty input field
+            Reset(Dropdown3);              // Reset Vendor field
+        Text: ="Add Row (Clear Inputs)"
+        VerticalAlign: =VerticalAlign.Middle
+        Width: =113
+        X: =1237
+        Y: =371
+        ZIndex: =32
+
+    Dropdown3 As dropdown:
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =App.Theme.Font
+        Height: =43
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Items: =["Nokia Optics", "Nokia"]
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =13
+        Width: =200
+        X: =229
+        Y: =403
+        ZIndex: =33
+
+    ButtonCanvas1_Submit As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =60
+        OnSelect: |
+            =// Generate a random Request ID (LOG + 5 random digits)
+            Set(
+                RequestID,
+                "LOG" & Text(RandBetween(10000, 99999))
+            );
+            
+            // Get the current user's email
+            Set(RequesterEmail, User().Email);
+            
+            // Patch data to SharePoint list
+            ForAll(
+                UserInputCollection,
+                Patch(
+                    'Logistics BOM Tracker',
+                    Defaults('Logistics BOM Tracker'),
+                    {
+                        PartNumber: ThisRecord.PartNumber,          // Maps to 'Part Model Number' in SP
+                        Location: ThisRecord.Location,              // Maps to 'Location' in SP
+                        InService: ThisRecord.InService,            // Maps to 'In Service Count' in SP
+                        SpareQty: ThisRecord.SpareQty,              // Maps to 'Spare Count' in SP
+                        Vendor: ThisRecord.Vendor,                  // Maps to 'Vendor' in SP
+                        USDPrice: Value(Substitute(ThisRecord.USDPrice, "$", "")), // Maps to 'Total Cost' in SP
+                        RequestID: RequestID,                        // Maps to 'RequestID' in SP
+                        Requester: RequesterEmail,                   // Directly maps the user's email to 'Requester' in SP
+            
+                        // Mapping additional fields based on provided SP and PowerApps control names
+                        DateCreated: DateCreated_Input_1.SelectedDate,                 // Maps to 'DateCreated' in SP
+                        JobDescription: JobDescription_Input_1.Value,                   // Maps to 'JobDescription' in SP
+                        ServiceID: ServiceID_Input_1.Value,                             // Maps to 'ServiceID' in SP
+                        'Sales Order Number': SalesOrderNumber_Input_1.Value,               // Maps to 'SalesOrderNumber' in SP
+                        SalesOrderTriggeredID: SalesOrderTriggeredID_Input_1.Value,     // Maps to 'SalesOrderTriggeredID' in SP
+                        CapexInfraID: CapexInfraID_Input_1.Value,                       // Maps to 'CapexInfraID' in SP
+                        RMTrackID: RMTrackID_Input_1.Value,                             // Maps to 'RMTrackID' in SP
+                        TSNumber: TSNumber_Input_1.Value,                               // Maps to 'TSNumber' in SP
+                        CCD: CCD_Input_1.SelectedDate,                                 // Maps to 'CCD' in SP
+                        CRD: CRD_Input_1.SelectedDate                                  // Maps to 'CRD' in SP
+                    }
+                )
+            );
+            
+            // Show a notification of successful submission
+            Notify("Data submitted successfully!", NotificationType.Success);
+            
+            // Optionally, clear the collection or reset inputs after submission
+            Clear(UserInputCollection);
+        Text: ="Submit Request"
+        Width: =150
+        X: =1104
+        Y: =222
+        ZIndex: =34
+
+    ButtonCanvas1 As Button:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =15
+        Height: =44
+        OnSelect: =Navigate(SelectedRequest1)
+        Text: ="My Requests"
+        Width: =142
+        X: =1112
+        Y: =5
+        ZIndex: =35
+

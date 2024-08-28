@@ -1,0 +1,423 @@
+Screen_DisplayDetails As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Button_SubmitChanges As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =60
+        OnSelect: |
+            =// Generate a new Request ID with "V2" suffix
+            Set(
+                NewRequestID,
+                SelectedRequest.RequestID & "V2"
+            );
+            
+            // Patch data to SharePoint list with updated RequestID
+            ForAll(
+                Filter('Logistics BOM Tracker', RequestID = SelectedRequest.RequestID),
+                Patch(
+                    'Logistics BOM Tracker',
+                    Defaults('Logistics BOM Tracker'),
+                    {
+                        PartNumber: ThisRecord.PartNumber,
+                        Location: ThisRecord.Location,
+                        InService: ThisRecord.InService,
+                        SpareQty: ThisRecord.SpareQty,
+                        Vendor: ThisRecord.Vendor,
+                        USDPrice: ThisRecord.USDPrice,
+                        RequestID: NewRequestID,   // Set new RequestID with "V2" suffix
+            
+                        // Mapping additional fields based on provided SP and PowerApps control names
+                        DateCreated: DateCreated_Input_2.SelectedDate,
+                        JobDescription: JobDescription.Text,
+                        ServiceID: ServiceID.Text,
+                        'Sales Order Number': 'SalesOrderNumber (SalesOrderNumber_Input_1)'.Text,
+                        SalesOrderTriggeredID: SalesOrderTriggeredID.Text,
+                        CapexInfraID: CapexInfraID.Text,
+                        RMTrackID: RMTrackID.Text,
+                        TSNumber: TSNumber.Text,
+                        CCD: CCD.SelectedDate,
+                        CRD: CRD_Input_1.SelectedDate,
+                        Requester: RequesterEmail
+                    }
+                )
+            );
+            
+            // Show a notification of successful submission
+            Notify("Changes submitted successfully with new Request ID!", NotificationType.Success);
+            
+            // Clear the collection or reset inputs after submission
+            Clear(UserInputCollection);
+        Text: ="Submit Changes"
+        Width: =150
+        X: =1144
+        Y: =255
+        ZIndex: =1
+
+    TotalCost_Label_1 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =App.Theme.Font
+        Height: =106
+        Size: =25
+        Text: |
+            ="Total Cost: $" & Text(
+                Sum(
+                    UserInputCollection, 
+                    Value(Substitute(USDPrice, "$", "")) * (InService + SpareQty)
+                ), 
+                "[$-en-US]###,###.00"
+            )
+        Width: =223
+        X: =1143
+        Y: =95
+        ZIndex: =2
+
+    "CRD_Input_2 As 'Date picker'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: |-
+            ="CRD:"
+        Width: =200
+        X: =328
+        Y: =317
+        ZIndex: =3
+
+    "CCD_Input_2 As 'Date picker'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: |-
+            ="CCD:"
+        Width: =300
+        X: =12
+        Y: =317
+        ZIndex: =4
+
+    "TSNumber_Input_2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="TSNumber"
+        Width: =400
+        X: =543
+        Y: =251
+        ZIndex: =5
+
+    "RMTrackID_Input_2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="RMTrackID"
+        Width: =200
+        X: =328
+        Y: =251
+        ZIndex: =6
+
+    "CapexInfraID_Input_2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="CapexInfraID"
+        Width: =300
+        X: =12
+        Y: =255
+        ZIndex: =7
+
+    "SalesOrderTriggeredID_Input_2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="SalesOrderTriggeredID"
+        Width: =400
+        X: =543
+        Y: =192
+        ZIndex: =8
+
+    "SalesOrderNumber_Input_2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="SalesOrderNumber"
+        Width: =200
+        X: =328
+        Y: =192
+        ZIndex: =9
+
+    "ServiceID_Input_2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="ServiceID"
+        Width: =300
+        X: =12
+        Y: =192
+        ZIndex: =10
+
+    "JobDescription_Input_2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Placeholder: ="Job / Project Description"
+        Width: =400
+        X: =228
+        Y: =123
+        ZIndex: =11
+
+    "DateCreated_Input_2 As 'Date picker'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Width: =200
+        X: =12
+        Y: =123
+        ZIndex: =12
+
+    Dropdown3_1 As dropdown:
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =First(Filter('Logistics BOM Tracker', RequestID = SelectedRequest1.RequestID)).Vendor
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =App.Theme.Font
+        Height: =43
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Items: =["Nokia Optics", "Nokia"]
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =13
+        Width: =145
+        X: =398
+        Y: =399
+        ZIndex: =13
+
+    TextInputQuantity_3 As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =First(Filter('Logistics BOM Tracker', RequestID = SelectedRequest.RequestID)).SpareQty
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Format: =TextFormat.Number
+        Height: =43
+        HintText: ="Spare Qty Needed"
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =176
+        X: =979
+        Y: =399
+        ZIndex: =14
+
+    TextInputInServiceQty_1 As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =First(Filter('Logistics BOM Tracker', RequestID = SelectedRequest.RequestID)).InService
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Format: =TextFormat.Number
+        Height: =43
+        HintText: ="In Service Qty Needed"
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =189
+        X: =770
+        Y: =399
+        ZIndex: =15
+
+    Dropdown1_1 As combobox:
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        DefaultSelectedItems: =First(Filter('Logistics BOM Tracker', RequestID = SelectedRequest.RequestID)).Location
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayFields: =["LocationCode"]
+        Font: =App.Theme.Font
+        Height: =43
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        InputTextPlaceholder: ="Choose Location"
+        Items: =Table1
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SearchFields: =["LocationCode"]
+        SearchItems: =Search(Table1,Dropdown1_1.SearchText,LocationCode)
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =13
+        Width: =177
+        X: =576
+        Y: =398
+        ZIndex: =16
+
+    TextInputPartNumber_3 As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =First(Filter('Logistics BOM Tracker', RequestID = SelectedRequest1.RequestID)).PartNumber
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =44
+        HintText: ="Part Number"
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =172
+        X: =198
+        Y: =399
+        ZIndex: =17
+
+    DataTable2_3 As dataTable.datatable:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Normal
+        HeadingColor: =RGBA(255, 255, 255, 1)
+        HeadingFill: =App.Theme.Colors.Primary
+        HeadingFont: =App.Theme.Font
+        HeadingFontWeight: =FontWeight.Normal
+        HeadingSize: =13
+        Height: =311
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter80
+        InputFill: =RGBA(255, 255, 255, 1)
+        InvertedColor: =RGBA(255, 255, 255, 1)
+        Items: =Filter('Logistics BOM Tracker', RequestID = SelectedRequest.RequestID)
+        LinkColor: =App.Theme.Colors.Lighter10
+        PrimaryColor1: =App.Theme.Colors.Primary
+        PrimaryColor2: =App.Theme.Colors.Darker30
+        PrimaryColor3: =App.Theme.Colors.Lighter70
+        SelectedColor: =RGBA(0, 0, 0, 1)
+        SelectedFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =1366
+        X: =0
+        Y: =457
+        ZIndex: =18
+
+        PartNumber_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="PartNumber"
+            FieldName: ="PartNumber"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.PartNumber
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        Location_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Location"
+            FieldName: ="Location"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Location
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        InService_Column2_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="InService"
+            FieldName: ="InService"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.InService
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        SpareQty_Column2_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="SpareQty"
+            FieldName: ="SpareQty"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.SpareQty
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        USDPrice_Column2_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="USDPrice Unit"
+            FieldName: ="USDPrice"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.USDPrice
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        Vendor_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Vendor"
+            FieldName: ="Vendor"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.Vendor
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        RequestID_Column_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Request ID"
+            FieldName: ="RequestID"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.RequestID
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+    Header_RequestInfo As Header:
+        DisplayMode: =DisplayMode.Edit
+        Height: =55
+        IsLogoVisible: =false
+        OnSelectLogo: =false
+        Title: ="Request Details"
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =40
+        ZIndex: =19
+
