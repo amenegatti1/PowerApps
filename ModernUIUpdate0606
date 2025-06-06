@@ -20,7 +20,7 @@ Screens:
             - AppTitle:
                 Control: Text@0.0.51
                 Properties:
-                  Text: "Unified Validation System"
+                    Text: ="Unified Validation System"
                   FontSize: =24
                   FontWeight: =FontWeight.Bold
                   Color: =RGBA(50, 49, 48, 1)
